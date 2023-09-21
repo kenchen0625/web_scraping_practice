@@ -30,6 +30,8 @@ func (i *Invoice) Fetch() error {
 func (i *Invoice) GetJackpot() ([]string, error) {
 	var prizes []string
 
+	defer i.response.Body.Close()
+
 	document, err := goquery.NewDocumentFromReader(i.response.Body)
 	if err != nil {
 		return nil, err
