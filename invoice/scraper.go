@@ -16,15 +16,15 @@ type Invoice struct {
 	response *http.Response
 }
 
-func (i *Invoice) Fetch() (bool, error) {
+func (i *Invoice) Fetch() error {
 	response, err := http.Get(i.URL)
 	if err != nil {
-		return false, err
+		return err
 	}
 
 	i.response = response
 
-	return true, err
+	return nil
 }
 
 func (i *Invoice) GetJackpot() ([]string, error) {

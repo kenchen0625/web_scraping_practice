@@ -10,7 +10,7 @@ func main() {
 	invoice := invoice.Invoice{
 		URL: "https://invoice.etax.nat.gov.tw",
 	}
-	_, err := invoice.Fetch()
+	err := invoice.Fetch()
 	if err != nil {
 		log.Fatal(err)
 	}

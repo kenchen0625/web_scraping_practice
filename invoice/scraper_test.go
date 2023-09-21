@@ -9,9 +9,9 @@ func FetchWebsite(t testing.TB) Invoice {
 		URL: "https://invoice.etax.nat.gov.tw",
 	}
 
-	success, err := invoice.Fetch()
+	err := invoice.Fetch()
 
-	if !success {
+	if err != nil {
 		t.Error("Fetching website failed:", err)
 	}
 
